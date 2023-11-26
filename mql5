@@ -1,0 +1,111 @@
+mql5
+//+------------------------------------------------------------------+
+//|                                                     AlgoTradingNightEA |
+//|                                            Forex Robot Easy Team |
+//|                                                  forexroboteasy.com |
+//+------------------------------------------------------------------+
+
+// Currency pairs
+string[] currencyPairs = {'USDCHF', 'EURUSD', 'GBPUSD', 'EURCHF', 'USDCAD', 'GBPAUD', 'CADCHF', 'EURAUD', 'AUDCHF', 'GBPCHF'};
+
+//+------------------------------------------------------------------+
+//| Expert initialization function                                   |
+//+------------------------------------------------------------------+
+int OnInit()
+{
+    // Add necessary initialization code here
+
+    return(INIT_SUCCEEDED);
+}
+
+//+------------------------------------------------------------------+
+//| Expert deinitialization function                                 |
+//+------------------------------------------------------------------+
+void OnDeinit(const int reason)
+{
+    // Add necessary deinitialization code here
+}
+
+//+------------------------------------------------------------------+
+//| Expert start function                                            |
+//+------------------------------------------------------------------+
+void OnTick()
+{
+    // Check if it's evening
+    if (IsEvening())
+    {
+        // Get current price deviations
+        double priceDeviation = GetPriceDeviation();
+
+        // Check if price deviation is within acceptable range
+        if (IsPriceDeviationAcceptable(priceDeviation))
+        {
+            // Check for additional filters
+            if (PassAdditionalFilters())
+            {
+                // Open a trade
+                OpenTrade();
+            }
+        }
+        else
+        {
+            // Do nothing
+        }
+    }
+}
+
+//+------------------------------------------------------------------+
+//| Check if it's evening                                             |
+//+------------------------------------------------------------------+
+bool IsEvening()
+{
+    // Add code to check if it's evening here
+    
+    return true; // Placeholder return value for testing
+}
+
+//+------------------------------------------------------------------+
+//| Get current price deviation                                      |
+//+------------------------------------------------------------------+
+double GetPriceDeviation()
+{
+    // Add code to calculate current price deviation here
+    
+    return 0.01; // Placeholder return value for testing
+}
+
+//+------------------------------------------------------------------+
+//| Check if price deviation is acceptable                           |
+//+------------------------------------------------------------------+
+bool IsPriceDeviationAcceptable(const double deviation)
+{
+    // Add code to check if price deviation is acceptable here
+    
+    return true; // Placeholder return value for testing
+}
+
+//+------------------------------------------------------------------+
+//| Check if additional filters pass                                  |
+//+------------------------------------------------------------------+
+bool PassAdditionalFilters()
+{
+    // Add code to check if additional filters pass here
+    
+    return true; // Placeholder return value for testing
+}
+
+//+------------------------------------------------------------------+
+//| Open a trade                                                     |
+//+------------------------------------------------------------------+
+void OpenTrade()
+{
+    // Add code to open a trade here
+}
+
+//+------------------------------------------------------------------+
+//| Program entry point                                              |
+//+------------------------------------------------------------------+
+void OnStart()
+{
+    // Add necessary code here
+}
